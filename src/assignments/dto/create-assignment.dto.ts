@@ -21,4 +21,8 @@ export class CreateAssignmentDto {
   @IsOptional()
   @IsDate()
   acceptedAt?: Date;
+
+  @IsOptional()
+  @IsDate()
+  updatedAt?: Date;
 }

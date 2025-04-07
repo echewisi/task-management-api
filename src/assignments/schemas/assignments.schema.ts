@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Schema as MongooseSchema } from 'mongoose';
-import { User } from '../../users/schemas/user.schema';
+import { User, UserDocument } from '../../users/schemas/user.schema';
 import { Task } from '../../tasks/schemas/tasks.schema';
 
 export type AssignmentDocument = Assignment & Document;
@@ -19,14 +19,14 @@ export class Assignment {
     ref: 'User', 
     required: true 
   })
-  assignedBy: User;
+  assignedBy: UserDocument;
 
   @Prop({ 
     type: MongooseSchema.Types.ObjectId, 
     ref: 'User', 
     required: true 
   })
-  assignedTo: User;
+  assignedTo: UserDocument;
 
   @Prop({ default: false })
   isAccepted: boolean;
